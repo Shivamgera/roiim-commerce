@@ -3,6 +3,9 @@
 {% block navbar-item %}
 <a class="nav-link" href="{% url 'payment:order-details' %}">Your Orders</a>
 {% endblock %}
+{% block logout %}
+<a class="nav-link" href="{% url 'user:logout' %}">Logout</a>
+{% endblock %}
 
 {% block page_content %}
 <p> Payment of INR {{ product.price }} is being processed for product: {{ product.name }}

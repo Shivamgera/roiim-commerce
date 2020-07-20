@@ -3,6 +3,9 @@
 {% block navbar-item %}
 <a class="nav-link" href="{% url 'payment:order-details' %}">Your Orders</a>
 {% endblock %}
+{% block logout %}
+<a class="nav-link" href="{% url 'user:logout' %}">Logout</a>
+{% endblock %}
 {% block page_content %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

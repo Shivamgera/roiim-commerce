@@ -13,12 +13,15 @@
             <li class="nav-item active">
               <a class="nav-link" href="/products">Products</a>
             </li>
+            <li class="nav-item active">
+              {% block navbar-item %} {% endblock %}
+            </li>
           </ul>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              {% block navbar-item %} {% endblock %}
+              {% block logout %} {% endblock %}
             </li>
           </ul>
         </div>

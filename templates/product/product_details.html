@@ -4,6 +4,9 @@
 {% block navbar-item %}
 <a class="nav-link" href="{% url 'payment:order-details' %}">Your Orders</a>
 {% endblock %}
+{% block logout %}
+<a class="nav-link" href="{% url 'user:logout' %}">Logout</a>
+{% endblock %}
 
 {% block page_content %}
 <h1>{{ product.name }}</h1>
