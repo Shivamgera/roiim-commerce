@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+
+{% block navbar-item %}
+<a class="nav-link" href="{% url 'payment:order-details' %}">Your Orders</a>
+{% endblock %}
 {% block page_content %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -12,7 +16,7 @@
             </div>
         </div>
     </div> 
-    <h2>The are the product ordered and paid by {{ user.username }}</h2>
+    <h2>These are the product ordered and paid by {{ user.username }}</h2>
     <div id="products" class="row view-group">
         {% for product in products %}
         <div class="item col-xs-4 col-lg-4">
