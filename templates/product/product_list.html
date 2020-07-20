@@ -8,9 +8,20 @@
         <div class="col-lg-12 my-3">
             <div class="pull-right">
             </div>
+            <div>
+                {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+            </div> 
         </div>
        
-    </div> 
+    </div>
+   
 
        
         <div id="products" class="row view-group">
@@ -39,14 +50,5 @@
         </div>
         {% endfor %}
     </div>
-    <div>
-        {% if messages %}
-            {% for message in messages %}
-              <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-    </div>
+
 </div>
