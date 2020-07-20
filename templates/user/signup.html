@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+{% load bootstrap_form from bootstrap4 %}
+{% block page_content %}
+<div class="col-lg-10 col-sm-12 m-auto">
+    <div class="row login">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+       <div class="col-md-6 login__register">
+        <div class="login__register-link">
+          <h3>Already have an account?</h3>
+          
+          <p><a rel="nofollow" href="{% url 'user:login' %}" class="btn secondary narrow">
+            Log in
+          </a></p>
+        </div>
+      </div> 
+       <div class="col-md-8 login__form">
+        <form method="post" action="{% url 'user:signup' product_pk=product.id %}">
+          <fieldset>
+            <h3>Create an Account</h3>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% if REDIRECT_FIELD_VALUE %}
+              <input type="hidden" name="{{ REDIRECT_FIELD_NAME }}" value="{{ REDIRECT_FIELD_VALUE }}"/>
+            {% endif %}
+          </fieldset>
+          <div class="button">
+          <button type="submit" class="btn btn-primary narrow">
+            Create an account
+          </button>
+          </div>
+        </form>
+      </div> 
+    </div>
+  </div>
+  <style>
+    .required label:after{
+      color: red;
+      content: " *";
+    }
+    .login__form {
+      background-color: white;
+    }
+    .button  {
+      margin-left: 455px;
+    }
+  </style>
+{% endblock %}

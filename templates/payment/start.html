@@ -1,0 +1,136 @@
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Payment Details
+                    </h3>
+                    <form name='form' method="POST" action="{% url 'payment:details' product_pk=product.id %}">
+                    <div class="checkbox pull-right">
+                        <label>
+                            <input type="checkbox" name='remember' value='1'/>
+                            Remember
+                        </label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <!-- <form name='form' method="POST" action="{% url 'payment:details' product_pk=product.id %}"> -->
+                        {% csrf_token %}
+                    <div class="form-group">
+                        <label for="cardNumber">
+                            CARD NUMBER</label>
+                        <div class="input-group">
+                            <input type="text" name="cardnumber" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                required autofocus />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-7 col-md-7">
+                            <div class="form-group">
+                                <label for="expityMonth">
+                                    EXPIRY DATE</label>
+                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                    <input type="text" class="form-control" name="expirymonth" id="expiryMonth" placeholder="MM" required />
+                                </div>
+                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                    <input type="text" class="form-control" name="expiryyear" id="expiryYear" placeholder="YYYY" required /></div>
+                            </div>
+                            <br>
+                            <br> 
+                            <div class="form-group">
+                                <label for="holderName">
+                                    Holder's Name</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="holdername" id="holderName" placeholder="Your Name"
+                                        required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nickName">
+                                    Nick Name</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="nickname" id="nickName" placeholder="Your Nick Name"
+                                        required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="street">
+                                    Street</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="street" id="street" placeholder="Street"
+                                        required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">
+                                    City</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="city" id="city" placeholder="City"
+                                        required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">
+                                    Zip</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="zip" id="zip" placeholder="Zip"
+                                        required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">
+                                    Country Code</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="country" id="city" placeholder="Country Code example: IN"
+                                        required autofocus />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 col-md-5 pull-right">
+                            <div class="form-group">
+                                <label for="cvCode">
+                                    CV CODE</label>
+                                <input type="password" class="form-control" name="cvcode" id="cvCode" placeholder="CV" required />
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span> {{ product.price }} </span> Final Payment</a>
+                </li>
+            </ul>
+            <br/>
+            <button type="submit" class="btn btn-success btn-lg btn-block" role="button" type="submit">Pay</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container{
+        width: 1000px;
+        height: 500px;
+        position: absolute;
+        left: 75%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>

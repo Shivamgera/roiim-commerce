@@ -1,0 +1,23 @@
+
+
+{% for product in products %}
+<div class="col-md-4 col-sm-12 mob-text-center">
+  <!-- <a href="{{ product.get_absolute_url }}" class="d-block brand-card mb-4 link--clean"> -->
+    <a href="products/1" class="d-block brand-card mb-4 link--clean">
+        <img class="img-responsive lazyload lazypreload mw-100"
+              data-src="https://images.boardriders.com/globalGrey/quiksilver-products/all/default/large/eqyft04097_towelhood,w_bsm0_frt1.jpg"
+              data-srcset="https://images.boardriders.com/globalGrey/quiksilver-products/all/default/large/eqyft04097_towelhood,w_bsm0_frt1.jpg"
+              alt=""
+              src="https://images.boardriders.com/globalGrey/quiksilver-products/all/default/large/eqyft04097_towelhood,w_bsm0_frt1.jpg">
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- <h2 class="section-header-rg header-dark font-semi-bold mb-2 mt-0">{{ product.translated }}</h2> -->
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+  </a>
+</div>
+
+{% endfor %}

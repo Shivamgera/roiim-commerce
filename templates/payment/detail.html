@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block page_content %}
+<p> Payment of USD {{ product.price }} is being processed for product: {{ product.name }}
+    with transaction ID: {{ payment.token }}
+    <br>
+    <a href="{% url 'payment:final' payment_pk=payment.id product_pk=product.id %}" class="btn btn-success">Click Here</a> to Confirm.
+</p>
+{% endblock %}
+

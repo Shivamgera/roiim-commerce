@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ product.name }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img src="https://picsum.photos/400" alt="" width="100%">
+    </div>
+    <div class="col-md-4">
+        <h5>About the product:</h5>
+        <p>{{ product.description }}</p>
+        <br>
+        <h5>Price:</h5>
+        <p>Rs. {{ product.price }}</p>
+        <a href="{% url 'payment:start' product_pk=product.id %}" class="btn btn-primary">
+            Pay and Order
+          </a>
+    </div>
+</div>
+{% endblock %}

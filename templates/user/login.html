@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load bootstrap_form from bootstrap4 %}
+{% block page_content %}
+<form method="post" action="{% url 'user:login' %}" novalidate>
+    {% csrf_token %}
+    <fieldset>
+      {% bootstrap_form form %}
+      {% if REDIRECT_FIELD_VALUE %}
+        <input type="hidden" name="{{ REDIRECT_FIELD_NAME }}" value="{{ REDIRECT_FIELD_VALUE }}"/>
+      {% endif %}
+    </fieldset>
+    <div class="row login__btn-group">
+      <div class="col-sm-12">
+        <button class="btn btn-primary narrow">
+          Log in
+        </button>
+            <hr>
+            <div class="row">
+            </div>
+      </div>
+    </div>
+  </form>
+  
+{% endblock %}
