@@ -12,9 +12,9 @@
        
     </div> 
 
-        {% for product in products %}
+       
         <div id="products" class="row view-group">
-            
+            {% for product in products %}
         <div class="item col-xs-4 col-lg-4">
             <div class="thumbnail card">
                 <div class="img-event">
@@ -38,5 +38,15 @@
             </div>
         </div>
         {% endfor %}
+    </div>
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
     </div>
 </div>
