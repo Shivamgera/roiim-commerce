@@ -10,12 +10,13 @@
     <div class="row">
         <div class="col-xs-12 col-md-4">
             {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
+            {% for message in messages %}
+              <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">

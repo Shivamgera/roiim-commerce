@@ -4,13 +4,6 @@
 {% block page_content %}
 <div class="col-lg-10 col-sm-12 m-auto">
     <div class="row login">
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
        <div class="col-md-6 login__register">
         <div class="login__register-link">
           <h3>Already have an account?</h3>
